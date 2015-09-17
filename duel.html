@@ -5,33 +5,45 @@
     <title>The Duel</title>
     <style>
     div{
-      white-space: pre;
-    }
-    </style>
-    <style>
-    div{
+      display: none;
       white-space: pre;
       font-family: monospace;
-
+    }
+    .visible{
+      display: block;
     }
     </style>
 
   </head>
   <body>
-    <div id="duel1">
+    <div id="duel1" class="visible">
       ~O  O~
-      <|/\|>
+      &lt;|/\|&gt;
        |\ |\
     </div>
     <div id="duel2">
       ~O  O~
-      <|--|>
+      &lt;|--|&gt;
       / \/ \
     </div>
     <div id="duel3">
       ~O  O~
-      <|\/|>
+      &lt;|\/|&gt;
        |\ |\
     </div>
+    <script>
+var frame = 1;
+setInterval(function(){
+  console.log(frame);
+  var el = document.getElementById('duel' + frame);
+  el.className = '';
+  frame = frame + 1;
+  if(frame == 4){
+    frame = 1;
+    }
+    el = document.getElementById('duel' + frame);
+    el.className = 'visible';
+  }, 100);
+    </script>
   </body>
 </html>
